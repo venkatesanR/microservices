@@ -1,17 +1,34 @@
 version: '2'
 services:
-  license-service:
+  configserver:
+    container_name: config-service
+    build:
+      context: configuration-service
+      dockerfile: Dockerfile
+    image: configuration-service:latest
+    ports:
+      - "8888:8888"
+    environment:
+      ENCRYPT_KEY: "IMSYMMETRIC"
+  database:
+    image: postgres:9.5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres_dev"
+      POSTGRES_PASSWORD: "p0stgr@s_dev"
+      POSTGRES_DB: "eagle_eye_dev"
+  license-server:
     container_name: license-service
     build:
       context: license-service
       dockerfile: Dockerfile
     image: license-service:latest
     ports:
-      - 18080:8080
+      - "8080:8080"
     environment:
-      NAME: license-service
-    networks:
-      - spring-cloud-network
-networks:
-  spring-cloud-network:
-    driver: bridge
+      PROFILE: "dev"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      CONFIGSERVER_PORT: "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY: "IMSYMMETRIC"

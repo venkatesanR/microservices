@@ -1,4 +1,7 @@
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+RUN  apk update && apk upgrade && apk add netcat-openbsd
+RUN mkdir -p /usr/local/licensingservice
+COPY target/license-service-1.0-SNAPSHOT.jar /usr/local/licensingservice/
+ADD run.sh run.sh
+RUN chmod +x run.sh
+CMD ./run.sh

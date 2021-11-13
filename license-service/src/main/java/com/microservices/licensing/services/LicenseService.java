@@ -14,9 +14,8 @@ public class LicenseService {
     private final LicensingRepo licenseRepository;
 
     public License getLicense(String organizationId, String licenseId) {
-        License license = licenseRepository.findByOrganizationIdAndLicenseId(
+        return licenseRepository.findByOrganizationIdAndLicenseId(
                 organizationId, licenseId);
-        return license;
     }
 
     public List<License> getLicensesByOrg(String organizationId) {

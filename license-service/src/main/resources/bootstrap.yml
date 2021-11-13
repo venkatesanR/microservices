@@ -1,10 +1,7 @@
 spring:
   application:
     name: licensingservice
-  profiles:
-    active: dev
   cloud:
     config:
-      uri: http://config-service:8888
       username: coco
       password: whiterose
