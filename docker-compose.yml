@@ -1,0 +1,17 @@
+version: '2'
+services:
+  license-service:
+    container_name: license-service
+    build:
+      context: license-service
+      dockerfile: Dockerfile
+    image: license-service:latest
+    ports:
+      - 18080:8080
+    environment:
+      NAME: license-service
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge
