@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/carnellj/config-repo/
-          searchPaths: licensingservice,organizationservice
-          username: native-cloud-apps
-          password: 0ffended
+          uri: https://github.com/venkatesanR/microservices
+          searchPaths: configurations/licensingservice
+          username: venkaraman1729@gmail.com
+          password: acube1729$
