@@ -1,8 +1,15 @@
+security:
+  ignored: /**
 server:
   port: 8888
 spring:
+  profiles:
+    active: native
   cloud:
     config:
       server:
         git:
-          uri: 
+          uri: https://github.com/carnellj/config-repo/
+          searchPaths: licensingservice,organizationservice
+          username: native-cloud-apps
+          password: 0ffended
