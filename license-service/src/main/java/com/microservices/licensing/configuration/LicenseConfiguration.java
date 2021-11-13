@@ -1,7 +1,7 @@
 package com.microservices.licensing.configuration;
 
-import org.springframework.cloud.config.environment.Environment;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 @Configuration
 public class LicenseConfiguration {

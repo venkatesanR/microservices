@@ -3,13 +3,11 @@ security:
 server:
   port: 8888
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/venkatesanR/microservices
-          searchPaths: configurations/licensingservice
+          uri: https://github.com/venkatesanR/config-repo
+          searchPaths: licensingservice
           username: venkaraman1729@gmail.com
           password: acube1729$
