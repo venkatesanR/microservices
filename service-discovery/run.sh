@@ -15,4 +15,4 @@ echo ">>>>>>>>>>>> Database Server has started"
 echo "********************************************************"
 echo "Starting License Server with Configuration Service :  $CONFIGSERVER_URI";
 echo "********************************************************"
-java -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Dspring.profiles.active=$PROFILE -jar /usr/local/licensingservice/app.jar
+java -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Dspring.profiles.active=$PROFILE -jar /usr/local/licensingservice/license-service-1.0-SNAPSHOT.jar
