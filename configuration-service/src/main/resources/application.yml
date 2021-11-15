@@ -1,13 +1,22 @@
-security:
-  ignored: /**
-server:
-  port: 8888
+server.port: 8888
 spring:
+  application:
+    name: configservice
   cloud:
     config:
+      discovery:
+        enabled: true
       server:
         git:
           uri: https://github.com/venkatesanR/config-repo
           searchPaths: licensingservice
           username: venkaraman1729@gmail.com
           password: acube1729$
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eurekaserver:8761/eureka/

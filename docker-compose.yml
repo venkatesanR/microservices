@@ -1,7 +1,19 @@
 version: '2'
 services:
+  eurekaserver:
+    container_name: eurekaserver
+    build:
+      context: eurekaserver
+      dockerfile: Dockerfile
+    image: eurekaserver:latest
+    ports:
+      - "8761:8761"
+    environment:
+      ENCRYPT_KEY: "IMSYMMETRIC"
+    networks:
+      - spring-cloud-network
   configserver:
-    container_name: config-service
+    container_name: configserver
     build:
       context: configuration-service
       dockerfile: Dockerfile
@@ -9,16 +21,15 @@ services:
     ports:
       - "8888:8888"
     environment:
+      name: "configserver"
       ENCRYPT_KEY: "IMSYMMETRIC"
-  database:
-    image: postgres:9.5
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: "postgres_dev"
-      POSTGRES_PASSWORD: "p0stgr@s_dev"
-      POSTGRES_DB: "eagle_eye_dev"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      CONFIGSERVER_PORT: "8888"
+    networks:
+      - spring-cloud-network
   license-server:
+    network_mode: host
     container_name: license-service
     build:
       context: license-service
@@ -31,4 +42,9 @@ services:
       CONFIGSERVER_URI: "http://configserver:8888"
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
       ENCRYPT_KEY: "IMSYMMETRIC"
+networks:
+  spring-cloud-network:
+    driver: bridge

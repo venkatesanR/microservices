@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eurekaserver:8761/eureka/

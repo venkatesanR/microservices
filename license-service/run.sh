@@ -3,16 +3,10 @@
 echo "********************************************************"
 echo "Waiting for the configuration server to start on port $CONFIGSERVER_PORT"
 echo "********************************************************"
-while ! `nc -z configserver $CONFIGSERVER_PORT `; do sleep 3; done
-echo ">>>>>>>>>>>> Configuration Server has started"
+while ! $(nc -z configserver $CONFIGSERVER_PORT); do sleep 3; done
+echo "*******  Configuration Server has started"
 
 echo "********************************************************"
-echo "Waiting for the database server to start on port $DATABASESERVER_PORT"
+echo "Starting License Server with Configuration Service :  $CONFIGSERVER_URI"
 echo "********************************************************"
-while ! `nc -z database $DATABASESERVER_PORT`; do sleep 3; done
-echo ">>>>>>>>>>>> Database Server has started"
-
-echo "********************************************************"
-echo "Starting License Server with Configuration Service :  $CONFIGSERVER_URI";
-echo "********************************************************"
-java -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Dspring.profiles.active=$PROFILE -jar /usr/local/licensingservice/app.jar
+java -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Dspring.profiles.active=$PROFILE -jar /usr/local/licensingservice/license-service-1.0-SNAPSHOT.jar
