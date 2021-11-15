@@ -1,5 +1,15 @@
 version: '2'
 services:
+  database:
+    image: postgres:9.5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres_dev"
+      POSTGRES_PASSWORD: "p0stgr@s_dev"
+      POSTGRES_DB: "eagle_eye_dev"
+    networks:
+      - spring-cloud-network
   eurekaserver:
     container_name: eurekaserver
     build:
@@ -29,7 +39,6 @@ services:
     networks:
       - spring-cloud-network
   license-server:
-    network_mode: host
     container_name: license-service
     build:
       context: license-service
@@ -45,6 +54,8 @@ services:
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       EUREKASERVER_PORT: "8761"
       ENCRYPT_KEY: "IMSYMMETRIC"
+    networks:
+      - spring-cloud-network
 networks:
   spring-cloud-network:
     driver: bridge
