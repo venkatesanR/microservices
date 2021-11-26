@@ -3,15 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.microservices</groupId>
         <artifactId>microservices</artifactId>
+        <groupId>com.microservices</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.microservices.licensing</groupId>
-    <artifactId>license-service</artifactId>
+    <groupId>com.microservices.organization</groupId>
+    <artifactId>organization-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>license-service</name>
+    <name>organization-service</name>
+
     <properties>
         <postgresql.version>42.3.1</postgresql.version>
     </properties>

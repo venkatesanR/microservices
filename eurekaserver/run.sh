@@ -1,5 +1,6 @@
 #!/bin/sh
+
 echo "********************************************************"
-echo "Starting Service Discovery server :  $CONFIGSERVER_URI"
+echo "Starting Eureka Server"
 echo "********************************************************"
 java -jar /usr/local/eurekaserver/eurekaserver-1.0-SNAPSHOT.jar

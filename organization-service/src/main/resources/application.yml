@@ -2,7 +2,7 @@ spring:
   datasource:
     initialization-mode: always
   application:
-    name: licensingservice
+    name: organizationservice
   cloud:
     config:
       enabled: true

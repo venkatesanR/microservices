@@ -56,6 +56,25 @@ services:
       ENCRYPT_KEY: "IMSYMMETRIC"
     networks:
       - spring-cloud-network
+  org-server:
+    container_name: org-server
+    build:
+      context: organization-service
+      dockerfile: Dockerfile
+    image: organization-service:latest
+    ports:
+      - "8081:8081"
+    environment:
+      PROFILE: "dev"
+      SERVER_PORT: "8081"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      CONFIGSERVER_PORT: "8888"
+      DATABASESERVER_PORT: "5432"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      ENCRYPT_KEY: "IMSYMMETRIC"
+    networks:
+      - spring-cloud-network
 networks:
   spring-cloud-network:
     driver: bridge

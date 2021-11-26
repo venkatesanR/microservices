@@ -1,4 +1,5 @@
 server.port: 8888
+spring.profile.active: dev
 spring:
   application:
     name: configservice
@@ -9,7 +10,7 @@ spring:
       server:
         git:
           uri: https://github.com/venkatesanR/config-repo
-          searchPaths: licensingservice
+          searchPaths: licensingservice,organizationservice,specialroutesservice,zuulservice,authenticationservice
           username: venkaraman1729@gmail.com
           password: acube1729$
 eureka:

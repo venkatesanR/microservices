@@ -1,12 +1,14 @@
 package com.microservices.licensing.database.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class Organization {
-    String id;
-    String name;
-    String contactName;
-    String contactEmail;
-    String contactPhone;
+    private String organizationId;
+    private String name;
+    private String contactName;
+    private String contactEmail;
+    private String contactPhone;
 }

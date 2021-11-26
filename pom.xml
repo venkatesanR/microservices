@@ -21,9 +21,10 @@
         <spring-boot-dependencies.version>2.5.6</spring-boot-dependencies.version>
     </properties>
     <modules>
-        <module>license-service</module>
-        <module>configuration-service</module>
         <module>eurekaserver</module>
+        <module>configuration-service</module>
+        <module>license-service</module>
+        <module>organization-service</module>
     </modules>
 
     <dependencies>
