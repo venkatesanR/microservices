@@ -23,6 +23,7 @@
     <modules>
         <module>eurekaserver</module>
         <module>configuration-service</module>
+        <module>router-service</module>
         <module>license-service</module>
         <module>organization-service</module>
     </modules>

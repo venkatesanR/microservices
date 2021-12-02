@@ -7,6 +7,6 @@ while ! $(nc -z configserver $CONFIGSERVER_PORT); do sleep 3; done
 echo "*******  Configuration Server has started"
 
 echo "********************************************************"
-echo "Starting License Server with Configuration Service :  $CONFIGSERVER_URI"
+echo "Starting Router service "
 echo "********************************************************"
-java -Dserver.port=$SERVER_PORT -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Deureka.client.serviceUrl.defaultZone=$EUREKASERVER_URI -Dspring.profiles.active=$PROFILE -jar /usr/local/orgservice/organization-service-1.0-SNAPSHOT.jar
+java -Dspring.cloud.config.uri=$CONFIGSERVER_URI -Deureka.client.serviceUrl.defaultZone=$EUREKASERVER_URI   -jar /usr/local/routeservice/router-service-1.0-SNAPSHOT.jar

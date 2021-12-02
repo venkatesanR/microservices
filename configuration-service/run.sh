@@ -9,4 +9,4 @@ echo "******* Eureka Server has started"
 echo "********************************************************"
 echo "Starting License Server with Configuration Service :  $CONFIGSERVER_URI"
 echo "********************************************************"
-java -Dserver.port=$CONFIGSERVER_PORT -jar /usr/local/configservice/configuration-service-1.0-SNAPSHOT.jar
+java -Dserver.port=$CONFIGSERVER_PORT -Deureka.client.serviceUrl.defaultZone=$EUREKASERVER_URI -jar /usr/local/configservice/configuration-service-1.0-SNAPSHOT.jar
